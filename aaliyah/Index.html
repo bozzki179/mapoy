@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>ART APPRECIATION GALLERY</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.quarter img{margin-bottom: -6px; cursor: pointer}
+.quarter img:hover{opacity: 0.6; transition: 0.3s}
+</style>
+<body class="light-grey">
+
+<!-- Sidebar/menu -->
+<nav class="sidebar bar-block black animate-right top text-light-grey large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
+  <a href="javascript:void()" onclick="w3_close()" class="bar-item button center padding-32">CLOSE</a>
+  <a href="#" onclick="w3_close()" class="bar-item button center padding-16">ARTS</a>
+  <a href="#about" onclick="w3_close()" class="bar-item button center padding-16">ABOUT ME</a>
+  <a href="#contact" onclick="w3_close()" class="bar-item button center padding-16">CONTACT</a>
+</nav>
+
+<!-- Top menu on small screens -->
+<header class="container top white xlarge padding-16">
+  <span class="left padding">SOME NAME</span>
+  <a href="javascript:void(0)" class="right button white" onclick="w3_open()">☰</a>
+</header>
+
+<!-- Overlay effect ng sidebar -->
+<div class="overlay animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- content ng page -->
+<div class="main content" style="max-width:1600px;margin-top:83px">
+
+  <!-- Photo grid -->
+  <div class="row grayscale-min">
+    <div class="quarter">
+      <img src="img\1.jpg" style="width:100%" onclick="onClick(this)" alt="">
+      <img src="img\2.jpg" style="width:100%" onclick="onClick(this)" alt="">
+      <img src="img\3.jpg" style="width:100%" onclick="onClick(this)" alt="">
+   </div>
+
+   <div class="quarter">
+      <img src="img\4.jpg" style="width:100%" onclick="onClick(this)" alt="">
+      <img src="img\1.jpg" style="width:100%" onclick="onClick(this)" alt="">
+      <img src="img\2.jpg" style="width:100%" onclick="onClick(this)" alt="">
+    </div>
+
+    <div class="quarter">
+      <img src="img\3.jpg" style="width:100%" onclick="onClick(this)" alt="">
+      <img src="img\4.jpg" style="width:100%" onclick="onClick(this)" alt="">
+      <img src="img\1.jpg" style="width:100%" onclick="onClick(this)" alt="">
+    </div>
+
+    <div class="quarter">
+      <img src="img\2.jpg" style="width:100%" onclick="onClick(this)" alt="">
+      <img src="img\3.jpg" style="width:100%" onclick="onClick(this)" alt="">
+      <img src="img\4.jpg" style="width:100%" onclick="onClick(this)" alt="">
+    </div>
+  </div>
+
+  <!-- Pagination -->
+  <div class="center padding-32">
+    <div class="bar">
+      <a href="#" class="bar-item button hover-black">«</a>
+      <a href="#" class="bar-item black button">1</a>
+      <a href="#" class="bar-item button hover-black">2</a>
+      <a href="#" class="bar-item button hover-black">3</a>
+      <a href="#" class="bar-item button hover-black">4</a>
+      <a href="#" class="bar-item button hover-black">»</a>
+    </div>
+  </div>
+
+  <!-- modal para sa arts-->
+  <div id="modal01" class="modal black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="button black xlarge display-topright">×</span>
+    <div class="modal-content animate-zoom center transparent padding-64">
+      <img id="img01" class="image">
+      <p id="caption"></p>
+    </div>
+  </div>
+
+  <!-- About section -->
+  <div class="container dark-grey center text-light-grey padding-32" id="about">
+    <h4><b>About Me</b></h4>
+    <img src="img\.jpg" alt="Me" class="image padding-32" width="600" height="650">
+    <div class="content justify" style="max-width:600px">
+      <h4>My Name</h4>
+      <p>RALPH TANGA
+      </p>
+
+  <!-- Contact section -->
+  <div class="container light-grey padding-32 padding-large" id="contact">
+    <div class="content" style="max-width:600px">
+      <h4 class="center"><b>Contact Me</b></h4>
+      <p>DETAILS</p>
+      <form action="/action_page.php" target="_blank">
+        <div class="section">
+          <label>Name</label>
+          <input class="input border" type="text" name="Name" required>
+        </div>
+        <div class="section">
+          <label>Email</label>
+          <input class="input border" type="text" name="Email" required>
+        </div>
+        <div class="section">
+          <label>Message</label>
+          <input class="input border" type="text" name="Message" required>
+        </div>
+        <button type="submit" class="button block black margin-bottom">Send Message</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="container padding-32 grey">
+    <div class="row-padding">
+      <div class="third">
+        <h3>INFO</h3>
+        <p>INFO.</p>
+      </div>
+  </footer>
+
+  <div class="black center padding-24">Designed by <a href="" target="_blank" class="hover-opacity">Mapoy POGI</a></div>
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+</script>
+
+
+</body>
+</html>
